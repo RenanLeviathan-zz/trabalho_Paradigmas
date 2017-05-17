@@ -85,6 +85,10 @@ ins_ord(){
 	
 }
 
+int isOrd(Lista *l){
+	
+}
+
 int enesimo(int n,Lista *l){
 	if(n==1) return l->cab;
 	else return enesimo(n-1,l->cau);
