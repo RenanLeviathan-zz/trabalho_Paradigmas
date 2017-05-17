@@ -15,5 +15,7 @@ main(){
 	if (member(4,l)) printf ("eh membro");
 	if (duplicados(l)) printf ("\ntem duplicados");
 	if(iguais(l,r)) printf("\nIguais!");
+	int n=2;
+	printf("\nO termo %d da lista e %d",n,enesimo(n,l));
 	return 0;
 }

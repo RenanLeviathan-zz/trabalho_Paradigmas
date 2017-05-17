@@ -85,6 +85,11 @@ ins_ord(){
 	
 }
 
+int enesimo(int n,Lista *l){
+	if(n==1) return l->cab;
+	else return enesimo(n-1,l->cau);
+}
+
 int member(int x, Lista *l){
 	if (l != NULL) {
 		if (l->cab == x) return 1;
