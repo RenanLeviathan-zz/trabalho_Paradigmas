@@ -57,9 +57,9 @@ int duplicados (Lista *l){
 }
 
 int iguais(Lista *l,Lista *r){
-	if(l->cau==NULL&&r->cau==NULL){
-		if(l->cab==r->cab) return 1;
-	}else iguais(l->cau,r->cau);
+	if(l!=NULL&&r!=NULL && l->cab==r->cab) iguais(l->cau,r->cau);
+	else if (l==NULL || r==NULL) return 1;
+	else return 0;
 }
 reverso (){
 	
