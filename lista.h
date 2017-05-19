@@ -57,9 +57,11 @@ int duplicados (Lista *l){
 }
 
 int iguais(Lista *l,Lista *r){
-	if(l!=NULL&&r!=NULL && l->cab==r->cab) iguais(l->cau,r->cau);
-	else if (l==NULL || r==NULL) return 1;
-	else return 0;
+	if(l->cau==NULL&&r->cau==NULL){
+		if(l->cab==r->cab) return 1;
+	}else{
+		
+	}
 }
 reverso (){
 	
@@ -86,12 +88,13 @@ ins_ord(){
 }
 
 int isOrd(Lista *l){
-	
-}
-
-int enesimo(int n,Lista *l){
-	if(n==1) return l->cab;
-	else return enesimo(n-1,l->cau);
+	if(l->cau->cau==NULL){
+		if(l->cab<l->cau->cab) return 1;
+		else return 0;
+	}else{
+		if(l->cab<l->cau->cab) isOrd(l->cau);
+		else return 0;
+	}
 }
 
 int member(int x, Lista *l){
@@ -101,6 +104,15 @@ int member(int x, Lista *l){
 	}
 }
 
+int maxL(Lista *l){
+	if(l->cau->cau==NULL){
+		if(l->cab>l->cau->cab) return l->cab;
+		else return l->cau->cab;
+	}else{
+		if(maxL(l->cau)>l->cab) return maxL(l->cau);
+		else return l->cab;
+	}
+}
 mergesort(){
 	
 }
