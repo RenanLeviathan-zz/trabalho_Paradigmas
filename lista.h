@@ -22,43 +22,44 @@ Lista* cauda(Lista *l){
 }
 void write(Lista* l){
 	if(l!=NULL){
-		printf("%i ",l->cab);
-		write(l->cau);
+		printf("%i ",head(l));
+		write(tail(l));
 	}
 }
 
 int compr(Lista *l){
 	if(l!=NULL){
-		return 1+compr(l->cau);
+		return 1+compr(tail(l));
 	}
 }
 
 int soma (Lista *l){
 	if (l==NULL) return 0;
-	else return l->cab + soma (l->cau);
+	else return head(l) + soma (head(l));
 }
 
 void append(Lista *l1, Lista *l2){
-	if (l1->cau == NULL) l1->cau=l2;
-	else append (l1->cau,l2);
+	//não sei se há de funcionar
+	if (tail(l1) == NULL) tail(l1)=l2;
+	else append (tail(l1),l2);
 }
 
 int ultimo(Lista *l){
-	if (l->cau == NULL) return l->cab;
-	else ultimo(l->cau);
+	if (tail(l) == NULL) return head(l);
+	else ultimo(tail(l));
 }
 
 // --------------------
 int duplicados (Lista *l){
-	if (l->cau != NULL){
-		if (member(l->cab,l->cau)) return 1;
-		else if(!duplicados(l->cau)) return 0;
+	if (tail(l) != NULL){
+		if (member(head(l),tail(l))) return 1;
+		else if(!duplicados(tail(l))) return 0;
 	}
 }
 
 int iguais(Lista *l,Lista *r){
-	if(l->cau==NULL&&r->cau==NULL){
-		if(l->cab==r->cab) return 1;
+	if(tail(l)==NULL&&tail(r)==NULL){
+		if(head(l)==head(r)) return 1;
 	}else{
 		
 	}
